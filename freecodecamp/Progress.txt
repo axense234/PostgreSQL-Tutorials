@@ -1,0 +1,59 @@
+Progress(Learn PostgreSQL Tutorial - Full Course for Beginners by freeCodeCamp.org):
+-done What is a Database
+-done What is SQL and Relational Database
+-done PostgreSQL Installation(Mac OS)
+-done PostgreSQL Installation(Windows)
+-done GUI Clients vs Terminal/CMD Clients
+-done Setup PSQL(MAC OS)
+-done Setup PSQL(Windows)
+-done How to Create a Database
+-done How to Connect to Databases
+-done A Very Dangerous Command
+-done How to Create Tables
+-done Creating Tables without Constraints
+-done Creating Tables with Constraints
+-done INSERT INTO
+-done INSERT INTO Example
+-done Generate 1000 Rows with Mockaroo
+-done Select From
+-done Order By
+-done Distinct
+-done Where clauses and AND
+-done Comparison Operators
+-done Limit,Offset,Fetch
+-done IN
+-done BETWEEN
+-done LIKE and ILIKE
+-done GROUP BY
+-done GROUP BY HAVING
+-done Adding New Table and Data using Mockaroo
+-done Calculating Min,Max & Average
+-done SUM
+-done Basics of Arithmetic Operators
+-done Arithmetic Operators(ROUND)
+-done Alias
+-done Coalesce
+-done NULLIF
+-done Timestamps and Dates
+-done Addings and Substracting with Dates
+-done Extracting Fields
+-done Age Function
+-done Primary Keys
+-done Understanding Primary Keys
+-done Adding Primary Keys
+-done Unique Constraints
+-done Check Constraints
+-done DELETE Records
+-done UPDATE Records
+-done On Conflict Do Nothing
+-done Upsert
+-done What is a Relationship/Foreign Keys
+-done Adding Relationship Between Tables
+-done Inner Joins
+-done Left Joins
+-done Deleting Records with Foreign Keys
+-done Exporting Query Results To CSV
+-done Serial and Sequences
+-done Extensions
+-done UUID as Primary Keys
+-done Conclusion

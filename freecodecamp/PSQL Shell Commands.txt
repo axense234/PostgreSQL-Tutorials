@@ -1,0 +1,126 @@
+\help -> redirects to help
+\! cls -> clears console
+\l -> shows the list of the databases you have
+\? options -> shows the psql command-line options
+\c x -> connects to the database with the name x
+\x -> switch to extended mode and back
+
+d stands for describe
+\d -> shows the list of tables and sequences
+\d x -> describes a table with the name x
+\dt -> shows the list of tables
+\df -> shows the list of available functions
+\ds -> shows the list of sequences
+
+\i x -> import file from x path of respective file(use forward slashes in path and add 2 in C:)
+
+
+Create Commands:
+=================
+CREATE DATABASE x; -> creates a database with the name x
+DROP DATABASE x; -> deletes a database with the name x
+
+CREATE TABLE x (property: data type, property: data type); -> creates a table with the name x,
+inside the table we can define properties like above)
+DROP TABLE x; -> deletes a table with the name x
+
+INSERT INTO x(column_name,column_name,...) -> inserts data into the table with the name x,on
+the specific columns
+VALUES(value for column_name,...); -> specifies the data that has to be inserted,the data types
+have to match and the values have to be in the order specified at INSERT INTO x command
+=================
+
+Read Commands:
+=================
+SELECT x1,x2,xn FROM y; -> select x properties from y table(to select everything x -> *)
+-in combination with select from: ORDER BY x1,x2 ASC/DESC(orders by x property in an ascending/
+descending order)
+-before x1,x2 you can add the DISTINCT keyword so that there won't be any duplicates shown from
+x1,x2
+-you can use the WHERE keyword at the end of a SELECT FROM statement to conditionally
+read data based on a condition(ex: SELECT * FROM mock_data WHERE gender = 'Female';)
+-to chain multiple where statements,use AND or OR
+-to use Comparison Operators,do something like SELECT x1 <> x2(<> = not equal,other operators
+you know) or you can use them in Conditional Statements
+-to LIMIT the amount of rows you get back use LIMIT x at the end of a SELECT FROM command
+-to skip over x rows,use the OFFSET x keyword before LIMIT y
+-the official way to LIMIT the amount of rows is to use FETCH FIRST x ROW ONLY,but you can
+shorthand this by using LIMIT X;
+-you can use the IN (x1,x2,xn) keyword in order to see if a property is equal to one of the values
+in the array)
+-you can use the BETWEEN x1 AND x2 to specifiy a range for your where clauses
+-with your WHERE Clauses you can use LIKE to check if a property follows a certain pattern
+(you can use % as wild-cards,___ as to how many chars should that propert contain) and you can
+also use ILIKE,which is the same as LIKE but case insensitive
+-in order to count how many x of y you have,use the GROUP BY property,and also specify
+next to the column x, COUNT(*),a function that will display a column that actually counts them
+-more aggregation functions like COUNT(*) are MAX,MIN,AVG,ROUND,SUM
+-you can also use aliases with the AS keyword
+-to set default cases in case a value is NULL,use the COALESCE keyword
+-to check the current time,use the NOW() function,to add/substract from it use the
+INTERVAL keyword followed by 'x YEARS/MONTHS/DAYS',where x is the number you want
+to add/substract
+-to only extract for example the years value from NOW(),use the EXTRACT function
+=================
+
+Constraints:
+=================
+-to remove a primary key:
+ALTER TABLE x DROP CONSTRAINT y -> x = table name,y = primary key name
+
+-to add a primary key(needs to be a value unique among all rows):
+ALTER TABLE x ADD PRIMARY KEY(x1,x2,...xn) -> adds a primary key to table x with the values
+x1,x2,...xn)
+
+-to add an unique constraint,do the above but instead of PRIMARY KEY just use ADD CONSTRAINT
+constraint_name UNIQUE(column name)
+
+-to add a check constraint do the above but instead of PRIMARY KEY just use ADD CONSTRAINT
+constraint_name CHECK(values)(this verifies if the row value is equal to any of those values)
+
+-to catch any errors use ON CONFLICT () DO (either NOTHING or any command,like UPDATE)
+=================
+
+Records:
+=================
+-to delete a table's content:
+DELETE FROM table_name;
+
+-to delete a record:
+DELETE FROM table_name WHERE primary_key = value;
+
+-to update a record;
+UPDATE table_name SET column_name = value,name = value WHERE primary_key = value;
+
+=================
+
+Relationships:
+=================
+-to add a column with a relationship:
+table_id BIGINT REFERENCES table(pk)
+
+-to inner join 2 tables:
+SELECT * FROM table1 JOIN table2 ON table1.fkey = table2.pkey;
+
+-to left join 2 tables:
+SELECT * FROM table1 LEFT JOIN table2 ON table1.fkey = table2.pkey(you can also use the
+keyword USING(fkey) if fkey = pkey)
+=================
+
+Misc:
+=================
+-how to generate CSV files:
+\copy query TO path DELIMITER ',' CSV HEADER;
+
+-to view all extensions:
+SELECT * FROM pg_available_extensions;
+
+-to install an extension:
+CREATE EXTENSION IF NOT EXISTS "extension_name";
+=================
+
+Sequences:
+=================
+-in order to alter a sequence:
+ALTER SEQUENCE sequence RESTART WITH value
+=================
